@@ -14,7 +14,7 @@ const FetchItems = () => {
     const controller = new AbortController();
     const signal = controller.signal;
     dispatch(fetchStatusActions.markFetchingstarted())
-    fetch("https://myntra-clone-igtr.vercel.app//items", { signal })
+    fetch("/items", { signal })
       .then((res) => res.json())
       .then(({ items }) => {
 
