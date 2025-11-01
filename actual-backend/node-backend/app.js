@@ -33,6 +33,14 @@ app.post('/items', async (req, res) => {
     ...itemData,
     id: Math.random().toString(),
   };
+
+  app.get("/",(req,res) =>{
+    res.send({
+      activeStatus:true,
+      error:false,
+    })
+  });
+  
   const updatedItems = [newItem, ...existingItems];
   await storeItems(updatedItems);
   res.status(201).json({ message: 'Stored new item.', item: newItem });
